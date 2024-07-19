@@ -19,7 +19,6 @@ const router = createBrowserRouter([
     children : [
       {
         path : "/",
-        loader : allImageLoader,
         element : <Home/>
       },
       {
