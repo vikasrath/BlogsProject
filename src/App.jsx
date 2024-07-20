@@ -6,6 +6,7 @@ import {useDispatch} from "react-redux"
 import { login,logout } from './Store/Authslice'
 import { Outlet } from 'react-router-dom'
 import  {Header,Footer, Loader} from "./Components/index"
+import {Toaster} from "react-hot-toast"
 
 
 function App() {
@@ -32,8 +33,11 @@ function App() {
    }
    else{
       return(
+        <>
+        
         <div className='min-h-screen  bg-gray-400'>
         <div className='w-full '>
+        <div><Toaster/></div>
           <Header />
           <main>
            <Outlet />
@@ -41,6 +45,7 @@ function App() {
           <Footer />
         </div>
       </div>
+      </>
       )
    }
 }

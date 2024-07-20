@@ -14,13 +14,13 @@ function SignupForm() {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const createAccount = async (data) => {
+        console.log("User data a:", data);
         setloading(true)
         setError('');
         try {
             const userAccount = await authservice.createAccount(data);
             if (userAccount) {
                 const userData = await authservice.getcurrentUser();
-                console.log("User data after account creation:", userData);
                 if (userData) {
                     dispatch(storelogin(userData));
                     setloading(false)

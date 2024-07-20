@@ -16,11 +16,11 @@ function Home() {
     }, [])
 
     return posts.length === 0 ? (
-        <div className="w-full py-8 mt-4 text-center bg-[#FFF5E0]">
+        <div className="w-full py-8  text-center bg-[#135D66] h-[500px]">
             <Container>
                 <div className="flex flex-wrap justify-center">
                     <div className="p-2 w-full">
-                        <h1 className="text-2xl font-bold text-[#141E46] hover:text-[#41B06E]">
+                        <h1 className="text-2xl font-bold text-[#d5d4da] hover:text-[#41B06E]">
                             Login to read posts
                         </h1>
                     </div>

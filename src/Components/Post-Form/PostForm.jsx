@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import detabaseservice from '../../Appwrite/Database'
 import { Input, Select, Loader } from '../index'
+import toast from 'react-hot-toast'
 
 function PostForm({ post }) {
     const [loading, setLoading] = useState(false)
@@ -21,8 +22,7 @@ function PostForm({ post }) {
 
     const submit = async (data) => {
         setLoading(true)
-        console.log("Form Data:", data);
-
+        
         if (post) {
             const file = data.Images[0] ? await detabaseservice.uploadFile(data.Images[0]) : null;
             if (file) {
@@ -43,6 +43,7 @@ function PostForm({ post }) {
                 const postCreated = await detabaseservice.createPost({ ...data, Userid: userId })
                 if (postCreated) {
                     setLoading(false)
+                    toast.success("Post Created Successfuly 🥰")
                     navigate(`/post/${postCreated.$id}`)
                 }
             }

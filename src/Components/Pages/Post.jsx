@@ -4,7 +4,7 @@ import detabaseservice from '../../Appwrite/Database';
 import { Container, Button } from '../index';
 import { useSelector, useDispatch } from 'react-redux';
 import parse from 'html-react-parser';
-import { deletePost as storePostDelete } from '../../Store/PostSlice';
+import toast from 'react-hot-toast';
 
 export default function Post() {
     const dispatch = useDispatch();
@@ -30,7 +30,7 @@ export default function Post() {
         detabaseservice.Deletepost(slug).then((status) => {
             if (status) {
                 detabaseservice.deleteFile(post.Images);
-                dispatch(storePostDelete(slug));
+                    toast.success("Post Deleted Successfuly")
                 navigate("/");
             }
         });

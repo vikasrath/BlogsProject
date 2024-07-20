@@ -1,5 +1,6 @@
 import Conf from "../conf/Conf.js";
 import { Client, Account, ID } from "appwrite";
+import toast from "react-hot-toast";
 
 export class Authservice {
     client = new Client();
@@ -16,13 +17,13 @@ export class Authservice {
         try {
             const userAccount = await this.account.create(ID.unique(), email, password, name);
             if (userAccount) {
-                console.log("Account ban gaya");
+                toast.success("Account Created Successfuly")
                 return this.login({ email, password });
             } else {
                 return userAccount;
             }
         } catch (error) {
-            console.log("Account create error ==>", error);
+            toast.error(error.message)
             return null;
         }
     }
@@ -31,11 +32,11 @@ export class Authservice {
         try {
             const session = await this.account.createEmailPasswordSession(email, password);
             if (session) {
-                console.log("User login successful");
+                toast.success("User Login Sucessfuly")
                 return session;
             }
         } catch (error) {
-            console.log("User login error ==>", error);
+            toast.error(error.message)
             return null;
         }
     }
@@ -43,21 +44,18 @@ export class Authservice {
     async logout() {
         try {
             await this.account.deleteSessions();
-            console.log("User logout successful");
+             toast.success("User logout successful")
         } catch (error) {
-            console.log("User logout error ==>", error);
+            toast.error(error.message)
         }
     }
 
     async getcurrentUser() {
         try {
              const user = await this.account.get();
-            //  console.log("Current user:", user);
              return user;
-
-
         } catch (error) {
-            console.log("Get current user error ==>", error);
+           console.log(error);
         }
         
     }

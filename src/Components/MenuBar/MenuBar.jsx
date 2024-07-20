@@ -25,7 +25,7 @@ function MenuBar({className= ""}) {
               <li key={item.name} className=' mt-5'>
                 <button
                   onClick={() => navigate(item.slug)}
-                  className='inline-block px-6 py-2 duration-200 hover:bg-[#77B0AA] hover:border text-[#003C43] rounded-full'
+                  className='inline-block px-6 py-2 duration-200 hover:bg-[#77B0AA] hover:border text-[#003C43] rounded-full text-xl  font-medium border'
                 >
                   {item.name}
                 </button>
