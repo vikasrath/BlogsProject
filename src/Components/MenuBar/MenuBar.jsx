@@ -18,14 +18,14 @@ function MenuBar({className= ""}) {
 
   return (
    
-      <div className={` ${className} md:hidden  absolute top-15 right-0 w-[50%] min-h-[300px] bg-[#E3FEF7] flex justify-center items-center`}>
+      <div className={` ${className} md:hidden  absolute top-15 right-0 w-[50%] min-h-[300px] bg-[#E3FEF7] flex justify-center items-center z-50`}>
           <ul className='flex  flex-col items-center justify-center  '>
             {navItems.map((item) => 
             item.active ? (
               <li key={item.name} className=' mt-5'>
                 <button
                   onClick={() => navigate(item.slug)}
-                  className='inline-block px-6 py-2 duration-200 hover:bg-[#77B0AA] hover:border text-[#003C43] rounded-full text-xl  font-medium border'
+                  className='inline-block px-6 py-2 duration-200 hover:bg-[#77B0AA] hover:border text-[#003C43] rounded-full  font-medium border'
                 >
                   {item.name}
                 </button>

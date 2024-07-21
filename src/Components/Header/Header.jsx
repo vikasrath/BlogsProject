@@ -33,7 +33,7 @@ function Header() {
           </div>
 
           {/* it will show in mobile screen */}
-          <button onClick={handleToggle} className=' md:hidden px-4  text-2xl text-center bg-slate-700 text-white '>
+          <button onClick={handleToggle} className=' md:hidden px-4  text-xl text-center bg-slate-700 text-white '>
                 <i className={` ${open ? " fa-solid fa-xmark" : "fa-solid fa-bars"}`}></i>
           </button>
 
